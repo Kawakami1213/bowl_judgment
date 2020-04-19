@@ -1,0 +1,67 @@
+header {
+    background-color: #FF9933;
+    height: 60px;
+    margin: -8px;
+    justify-content: space-between;
+    text-align:center;
+}
+
+.header_div {
+    font-size: 48px;
+    font-family: "HG行書体",cursive; 
+    color: black; 
+    text-align: center;
+}
+
+.main {
+    height: 370px;
+    text-align : center;
+    margin: 25px 0px 25px 0px;
+}
+
+img.top {
+    width: auto;
+    height: auto;
+    background-position: center center;
+}
+
+img.result_top {
+    width: auto;
+    height: auto;
+    background-position: center center;
+}
+
+h2 {
+    color: #444444;
+    margin: 5px 0px;
+    text-align: center;
+}
+
+p {
+    color: #444444;
+    margin: 10px 0px 30px 0px;
+    text-align: center;
+}
+
+.answer {
+    color: #444444;
+    margin: 70px 0px 30px 0px;
+    text-align: center;
+}
+
+form {
+    text-align: center;
+}
+
+h2 {
+    color: #444444;
+    text-align: center;
+}
+
+footer {
+    background-color: #FF9933;
+    height: 110px;
+    position: relative;
+    margin-top: 700px;
+}
+

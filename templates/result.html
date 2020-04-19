@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>どんぶり判別器</title>
+    <link rel="stylesheet" href={{url_for('static', filename='stylesheet.css')}}>
+</head>
+<body>
+    <header>
+        <div class="header_div">
+            どんぶり判別器
+        </div>
+    </header>
+
+    <div class="main">
+        <br>
+        <h2>{{answer}}</h2>
+        <br>
+        <img class="result_top" src={{img_src}}>
+        <br>
+        <br>
+        <br>
+        <p>画像を送信してください</p>
+        <form method="POST" enctype="multipart/form-data">
+            <input class="file_choose" type="file" name="file">
+            <input class="btn" value="押す" type="submit">
+        </form>
+        <br>
+        <br>
+        <form method="GET" enctype="multipart/form-data">
+            <input class="btn" value="戻る" type="submit">
+        </form>
+    </div>
+
+    <footer>
+    </footer>
+</body>
+</html>
