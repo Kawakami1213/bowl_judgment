@@ -1,16 +1,17 @@
 import os
 from flask import Flask, request, redirect, url_for, render_template, flash
 from werkzeug.utils import secure_filename
-#from keras.models import Sequential, load_model
-#from keras.preprocessing import image
 from tensorflow.keras.models import Sequential, load_model
 from tensorflow.keras.preprocessing import image
 from tensorflow.keras.backend import set_session
 import tensorflow as tf
 import numpy as np
+import path
 
+path = path.getpath()
+    
 classes = ["牛丼","天丼","かつ丼","海鮮丼"]
-img_path = ["./static/gyudon.jpg","./static/tendon.jpg","./static/katsudon.jpg","./static/kaisendon.jpg"]
+img_path = [path + "/static/gyudon.jpg", path + "/static/tendon.jpg", path + "/static/katsudon.jpg", path + "/static/kaisendon.jpg"]
 num_classes = len(classes)
 image_size = 50
 
@@ -37,7 +38,7 @@ def allowed_file(filename):
 session = tf.Session(graph=tf.get_default_graph())
 graph = tf.get_default_graph()
 set_session(session)
-model = load_model('./donburi_model.h5')#学習済みモデルをロードする
+model = load_model(path + '/donburi_model.h5')#学習済みモデルをロードする
 
 @app.route('/', methods=['GET', 'POST'])
 def upload_file():
@@ -71,7 +72,4 @@ def upload_file():
         return render_template("index.html",answer="")
 
 if __name__ == "__main__":
-#    app.run()
-#    port = int(os.environ.get('PORT', 8080))
-#    app.run(host ='0.0.0.0',port = port)
-    app.run(host='0.0.0.0', port=80, threaded=True)
+    app.run(host='0.0.0.0', port=444, threaded=True)
