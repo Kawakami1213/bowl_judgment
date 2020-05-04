@@ -8,14 +8,13 @@ import tensorflow as tf
 import numpy as np
 import path
 
-path = path.getpath()
-    
+PATH,UPLOAD_FOLDER = path.getpath()
+
 classes = ["牛丼","天丼","かつ丼","海鮮丼"]
-img_path = [path + "/static/gyudon.jpg", path + "/static/tendon.jpg", path + "/static/katsudon.jpg", path + "/static/kaisendon.jpg"]
+img_path = ["./static/gyudon.jpg", "./static/tendon.jpg", "./static/katsudon.jpg", "./static/kaisendon.jpg"]
 num_classes = len(classes)
 image_size = 50
 
-UPLOAD_FOLDER = "uploads"
 ALLOWED_EXTENSIONS = set(['png', 'jpg', 'jpeg', 'gif'])
 
 app = Flask(__name__)
@@ -38,7 +37,7 @@ def allowed_file(filename):
 session = tf.Session(graph=tf.get_default_graph())
 graph = tf.get_default_graph()
 set_session(session)
-model = load_model(path + '/donburi_model.h5')#学習済みモデルをロードする
+model = load_model(PATH + '/donburi_model.h5')#学習済みモデルをロードする
 
 @app.route('/', methods=['GET', 'POST'])
 def upload_file():
@@ -65,7 +64,7 @@ def upload_file():
                 set_session(session)
                 result = model.predict(data)[0]
                 predicted = result.argmax()
-                pred_answer = "これは " + classes[predicted] + " である可能性が高いです。"
+                pred_answer = "これは " + classes[predicted] + " である可能性が 高いです。"
 
                 return render_template("result.html",answer=pred_answer,img_src=img_path[predicted])
 
